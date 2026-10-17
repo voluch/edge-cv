@@ -72,7 +72,7 @@ Hardware takes ~2–3 weeks to arrive from AliExpress. The plan uses that time f
 | 0 | Order Phase 1 hardware. Create the `edge-cv` repo with `docs/`, root `.claude/`, `common/` skeleton (doc 05) | none | Repo and agent setup in place |
 | 1–3 | **T1 part A:** cloud training on VisDrone; ONNX export; ncnn conversion and a laptop CPU/NPU benchmark | none | First trained model, first benchmark table |
 | 3–4 | **T0:** hardware arrives; Pi setup, window rig, calibration, road homography | Pi, camera | Calibrated camera, map of the road in metres |
-| 4–6 | **T1 part B:** record street video; auto-label with a large model in the cloud; correct labels in CVAT; fine-tune; deploy on Pi CPU (ncnn) | Pi | Street detector running on the Pi |
+| 4–6 | **T1 part B:** record street video; auto-label with a large model in the cloud; correct labels in Hasty; fine-tune; deploy on Pi CPU (ncnn) | Pi | Street detector running on the Pi |
 | 6–7 | Order AI HAT+ (Phase 2) around 11.11 sale; Hailo conversion; CPU vs NPU vs laptop benchmark | + AI HAT+ | **Benchmark table: 3 runtimes** |
 | 7–9 | **T2:** C++ tracker, metric Kalman, speed and counts; validate speed with phone GPS | Pi | **Speed in km/h with a measured error** |
 | 9–12 | **T3:** C++ runtime, HailoRT, GStreamer stream, Telegram alerts; 7-day uptime test | Pi + HAT | **Checkpoint: apply to middle roles** |

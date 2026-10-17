@@ -16,7 +16,7 @@ Show that the detector and tracker work in the real world, not only on benchmark
 | Robustness test set | Small labelled set per condition (e.g. 200 frames each) kept fixed for all model versions |
 | Synthetic corruptions | Blur, noise, JPEG artifacts, low light, rain streaks applied to clean frames; measures sensitivity in a controlled way |
 | Uncertainty sampling on the Pi | T3 runtime saves frames with low-confidence detections, track fragmentation or disagreement between consecutive frames; rate-limited; blurred before leaving the Pi |
-| Labelling loop | Selected frames → teacher model in the cloud → correction in CVAT → new DVC dataset version |
+| Labelling loop | Selected frames → teacher model in the cloud → correction in Hasty → new DVC dataset version |
 | Retraining and comparison | Retrain the student; compare on the fixed robustness test set; keep a model registry with metrics per version |
 | Drift monitor | Weekly report from the Pi logs: detection counts per class and hour, confidence distributions; flags unusual changes |
 

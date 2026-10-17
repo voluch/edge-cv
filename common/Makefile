@@ -2,8 +2,11 @@ BUILD := build
 
 .PHONY: setup test lint test-py test-cpp
 
+# uv if available (the project .venv has no pip), otherwise pip
+PIP := $(shell command -v uv >/dev/null 2>&1 && echo "uv pip" || echo "pip")
+
 setup:
-	pip install -e ".[dev]"
+	$(PIP) install -e ".[dev]"
 
 test: test-py test-cpp
 

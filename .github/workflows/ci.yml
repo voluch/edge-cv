@@ -1,0 +1,85 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  changes:
+    runs-on: ubuntu-24.04
+    outputs:
+      common: ${{ steps.f.outputs.common }}
+      hooks: ${{ steps.f.outputs.hooks }}
+      tasks: ${{ steps.f.outputs.tasks }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: f
+        with:
+          filters: |
+            common:
+              - 'common/**'
+            hooks:
+              - '.claude/hooks/**'
+            tasks:
+              # any task folder, or common (every task depends on it), or the runner
+              - 'common/**'
+              - 'rig-calib/**'
+              - 'street-detector/**'
+              - 'tracker/**'
+              - 'edge-runtime/**'
+              - 'pan-tilt/**'
+              - 'robustness/**'
+              - 'gnss-free-nav/**'
+              - 'thermal/**'
+              - 'cat-deterrent/**'
+              - 'Makefile'
+
+  forbidden-files:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: scripts/check_forbidden_files.sh
+
+  hooks:
+    needs: changes
+    if: needs.changes.outputs.hooks == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: python -m pytest -q .claude/hooks/tests
+
+  common:
+    needs: changes
+    if: needs.changes.outputs.common == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e "common/[dev]"
+      - run: make -C common lint
+      - run: make -C common test
+
+  tasks:
+    needs: [changes, common]
+    # run even when the common job was skipped, but not when it failed
+    if: always() && needs.changes.outputs.tasks == 'true' && needs.common.result != 'failure'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e "common/[dev]"
+      # runs test of every folder that has a Makefile (common included, cheap) plus the hook tests
+      - run: make test

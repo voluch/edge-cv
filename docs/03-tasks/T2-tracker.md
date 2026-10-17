@@ -28,7 +28,7 @@ A tracker you wrote yourself, in C++, that keeps a stable ID for every person/ve
 3. Switch the state to road metres using the T0 homography; handle the distance-dependent measurement noise.
 4. Speed: derive from the filter's velocity state; smooth over a short window.
 5. **Validate speed:** walk past at a steady pace and ride/drive past with a phone logging GPS speed; compare. Report mean and max error.
-6. Label 2–3 short street clips with track IDs (CVAT supports tracks). Evaluate HOTA/IDF1.
+6. Label 2–3 short street clips with track IDs (check that Hasty exports track IDs; if not, use a local CVAT for this step only). Evaluate HOTA/IDF1.
 7. Add the re-identification module; measure ID switches with and without it, especially through occlusions (trees, parked cars, buses).
 8. Profile on the Pi: time per frame vs number of objects.
 

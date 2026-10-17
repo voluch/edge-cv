@@ -15,7 +15,7 @@ A small object detector for **person, bicycle, car, bus/truck, motorbike, cat, d
 | Data: public | VisDrone (aerial/elevated views, persons and vehicles). Map its classes to the project class list |
 | Data: own street | Clips recorded from the window over several days and lighting conditions; frames sampled for labelling |
 | Auto-labelling (teacher) | A large open-vocabulary or large YOLO model run in the cloud over your frames to produce draft labels |
-| Label correction | CVAT project; correct teacher labels; track label quality (how many teacher boxes were wrong) |
+| Label correction | Hasty project; correct teacher labels; track label quality (how many teacher boxes were wrong) |
 | Dataset versioning | DVC with remote storage (Google Drive or similar); fixed train/val/test split by **day**, not by frame, to avoid leakage |
 | Training (student) | Ultralytics YOLO nano/small in a cloud notebook; config files in the repo; experiment tracking (W&B or MLflow) |
 | Export | ONNX → (a) ncnn for the Pi CPU, (b) Hailo HEF via the Hailo Dataflow Compiler (x86 Linux, run in the cloud), (c) OpenVINO or vendor runtime for the laptop NPU |
@@ -36,7 +36,7 @@ A small object detector for **person, bicycle, car, bus/truck, motorbike, cat, d
 
 5. Record street clips: different times of day, weekday/weekend, rain if possible. Save only what you need; keep it private.
 6. Sample ~1,500–3,000 frames (more from rare moments: cats, dogs, cyclists). Run the teacher model in the cloud.
-7. Correct the labels in CVAT. Record how much correction was needed (this is a nice result to report).
+7. Correct the labels in Hasty (upload only selected frames with faces and plates already blurred). Record how much correction was needed (this is a nice result to report).
 8. Fine-tune the student on VisDrone + street data. Compare: VisDrone-only vs street-only vs both.
 9. Deploy on the Pi CPU (ncnn). Then, when the AI HAT+ arrives, compile to HEF and deploy on the NPU.
 10. Run the benchmark harness on all three targets and write the results table.
