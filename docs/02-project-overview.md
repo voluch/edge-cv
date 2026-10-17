@@ -81,7 +81,7 @@ Hardware takes ~2–3 weeks to arrive from AliExpress. The plan uses that time f
 | 14–20 | **T6:** desk rig VO, map matching, EKF, PX4 SITL | + IMU, desk arm, printed map | **Trajectory vs ground truth; PX4 flying on your estimates** |
 | later | T7 thermal, F1 cat deterrent | + thermal camera | |
 
-**Apply early.** After T1 + T2 + T3 (~week 12), the project already covers the "must know" list and most "should know" items from `01-vacancies-analysis.md`. Start applying to middle roles then; continue T4–T6 while interviewing. The navigation module (T6) strengthens applications to the ~14 roles that mention GPS-free navigation.
+**Apply early.** After T1 + T2 + T3 (~week 12), the project already covers the "must know" list and most "should know" items from the vacancy analysis (kept locally, not in the repo). Start applying to middle roles then; continue T4–T6 while interviewing. The navigation module (T6) strengthens applications to the ~14 roles that mention GPS-free navigation.
 
 ## 2.5 Milestones and what each proves
 

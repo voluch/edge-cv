@@ -17,17 +17,14 @@
 
 | File | What it is |
 |---|---|
-| `01-vacancies-analysis.md` | What the market asks for, condensed into a skills checklist: must-know, should-know, stretch |
-| `01b-vacancies-detailed.md` | The full analysis of 27 unique roles from DOU and Djinni, with links |
 | `02-project-overview.md` | The tasks, how they connect, the timeline and the milestones |
 | `03-tasks/` | One detailed file per task (one task = one folder of the `edge-cv` monorepo) |
-| `04-shopping-list.md` | Everything to buy, with AliExpress links, in phases |
 | `05-agentic-development.md` | Monorepo layout, Claude Code agents, skills and conventions for setting up the projects |
 | `06-extras.md` | Legal and privacy rules, risks, learning resources, interview preparation, CV presentation |
 
 ## How to use this pack
 
 1. Read `02-project-overview.md` first. It is the map.
-2. Order Phase 1 hardware from `04-shopping-list.md`.
+2. Order the Phase 1 hardware (Pi 5, Camera Module 3, power supply, microSD; the AI HAT+ later).
 3. While it ships (2–3 weeks), create the `edge-cv` monorepo and set up agents following `05-agentic-development.md` and start task T1 (detector training in the cloud), which needs no hardware.
 4. Work through `03-tasks/` in order. Each task file ends with a "definition of done".
