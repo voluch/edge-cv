@@ -61,6 +61,6 @@ Every task reads and writes this format, so outputs from T1 feed T2, T2 feeds T3
 
 ### Definition of done
 
-- `pip install -e common/` works on the laptop, in Colab (after `git clone`) and on the Pi.
+- `pip install -e common/` works on the laptop, on a RunPod pod or Colab (after `git clone`) and on the Pi.
 - The C++ part builds on the Pi with CMake and is used by other folders with `add_subdirectory(common)` or a CMake target.
 - Unit tests for geometry (round-trip pixel → ground → pixel), serialization and metrics.

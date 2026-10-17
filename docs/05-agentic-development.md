@@ -172,7 +172,7 @@ Skills are folders with a `SKILL.md` (YAML frontmatter + instructions) and optio
 | Skill | What it does | Invocation |
 |---|---|---|
 | `new-experiment` | Creates an experiment folder with a config, a README stub and an entry in the experiment log | auto or `/` |
-| `cloud-train` | Prepares and checks a training run for Colab/Kaggle: config, DVC pull, checkpoint/resume, metric logging | `/` only |
+| `cloud-train` | Prepares and checks a training run for a RunPod pod (or Colab/Kaggle): config, DVC pull, checkpoint/resume, metric logging | `/` only |
 | `export-model` | ONNX → ncnn / HEF / OpenVINO with fixed steps and an accuracy check after each | auto or `/` |
 | `pi-deploy` | Builds and copies a build to the Pi over SSH, installs the systemd unit, checks health | `/` only (side effects) |
 | `pi-benchmark` | Runs the benchmark harness on the Pi, collects results into `bench/results.jsonl` | `/` only |

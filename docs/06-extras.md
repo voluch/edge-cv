@@ -27,13 +27,13 @@ Things not covered elsewhere that will matter during the project and the job sea
 
 | Option | Good for | Notes |
 |---|---|---|
-| Google Colab (free / paid tiers) | Short training runs, conversion | Sessions time out; checkpoint every epoch and resume |
-| Kaggle notebooks | Longer free GPU quota per week | Datasets can live in Kaggle Datasets |
-| Paid cloud GPU by the hour (any provider) | Final training runs, Hailo compilation on x86 Linux | Budget a few dollars per final run; stop instances when done |
+| **RunPod GPU pods (main choice)** | All training, final runs, Hailo compilation on x86 Linux | Pay per hour; use a network volume for code, data cache and checkpoints; stop or terminate the pod when idle. Check current prices; a 24 GB card is enough for YOLO nano/small |
+| Google Colab / Kaggle (optional) | Quick experiments, conversion tests | Free tiers time out; checkpoint every epoch and resume |
+| Multi-GPU training | Not needed | None of the 27 analysed vacancies asks for it; one GPU is enough for these models |
 
 Habits that save time:
 
-- The notebook only **calls code from the repo** (`!git clone`, `!pip install -e common/`, `!make -C street-detector train EXP=...`). No logic lives only in a notebook.
+- The pod (or notebook) only **calls code from the repo** (`!git clone`, `!pip install -e common/`, `!make -C street-detector train EXP=...`). No logic lives only in a notebook.
 - **DVC pull/push** at the start/end of every session.
 - **Experiment tracking** (W&B or MLflow) so results survive the session.
 - Use the **laptop NPU** for inference benchmarks (OpenVINO or the vendor's ONNX Runtime provider), not training.

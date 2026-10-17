@@ -1,6 +1,6 @@
 # T1. Street detector: train in the cloud, run on the Pi (`street-detector/`)
 
-**Duration:** ~5–6 weeks (part A starts before the hardware arrives) · **Hardware:** cloud GPU (Colab/Kaggle), Pi 5, AI HAT+ (from week ~6), laptop NPU · **Language:** Python
+**Duration:** ~5–6 weeks (part A starts before the hardware arrives) · **Hardware:** cloud GPU (RunPod), Pi 5, AI HAT+ (from week ~6), laptop NPU · **Language:** Python
 
 ## Goal
 
@@ -63,7 +63,7 @@ A small object detector for **person, bicycle, car, bus/truck, motorbike, cat, d
 
 - **Small objects** (cats/dogs/pedestrians far away): try a larger input size, tiled inference (SAHI-style slicing), and a small-object-aware augmentation. Measure the speed cost of each.
 - **Class imbalance:** cats and dogs are rare. Oversample, and report per-class results honestly.
-- **Free cloud GPU limits:** checkpoint often; resume training from the last checkpoint.
+- **Pod interruptions and cost:** checkpoint often to the network volume; resume from the last checkpoint; stop the pod when a run ends.
 - **Hailo compilation:** not every layer is supported; keep the model to standard YOLO architectures and check the Hailo model zoo for known-good configurations.
 
 ## Stretch
