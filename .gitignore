@@ -1,0 +1,14 @@
+.venv/
+.idea/
+__pycache__/
+*.pyc
+data/
+recordings/
+*.mp4
+*.hef
+*.onnx
+
+# private planning notes (kept locally)
+docs/01-vacancies-analysis.md
+docs/01b-vacancies-detailed.md
+docs/04-shopping-list.md
