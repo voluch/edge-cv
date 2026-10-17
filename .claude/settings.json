@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make setup)",
+      "Bash(make test)",
+      "Bash(make lint)",
+      "Bash(make -C * test)",
+      "Bash(make -C * lint)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(dvc pull*)",
+      "Bash(ssh pi@ecv-pi uptime)"
+    ],
+    "ask": [
+      "Bash(git push*)",
+      "Bash(dvc push*)",
+      "Bash(gh release create*)",
+      "Bash(scp *)",
+      "Bash(ssh pi@ecv-pi *)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~*)",
+      "Bash(git add data/*)",
+      "Bash(git add recordings/*)"
+    ]
+  }
+}
